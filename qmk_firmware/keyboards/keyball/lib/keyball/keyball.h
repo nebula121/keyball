@@ -44,8 +44,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define KEYBALL_SCROLLSNAP_RESET_TIMER 100
 #endif
 
-#ifndef KEYBALL_SCROLLSNAP_TENSION_THRESHOLD
-#    define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD 12
+#ifndef KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_1ST
+#    define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_1ST 1
+#endif
+
+#ifndef KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_2ND
+#    define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_2ND 2
 #endif
 
 /// Specify SROM ID to be uploaded PMW3360DW (optical sensor).  It will be
@@ -152,8 +156,8 @@ typedef struct {
     uint32_t scroll_mode_changed;
     uint8_t  scroll_div;
 
-    uint32_t scroll_snap_last;
-    int8_t   scroll_snap_tension_h;
+    uint32_t prev_scroll_time;
+    uint8_t  scroll_snap_mode;
 
     uint16_t       last_kc;
     keypos_t       last_pos;
