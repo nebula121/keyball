@@ -45,12 +45,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define KEYBALL_SCROLLSNAP_RESET_TIMER 100
 #endif
 
-#ifndef KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_1ST
-#    define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_1ST 1
-#endif
-
-#ifndef KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_2ND
-#    define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_2ND 2
+#ifndef KEYBALL_SCROLLSNAP_TENSION_THRESHOLD
+#    define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD 12
 #endif
 
 /// Specify SROM ID to be uploaded PMW3360DW (optical sensor).  It will be
