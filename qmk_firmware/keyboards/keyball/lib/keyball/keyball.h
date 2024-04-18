@@ -51,6 +51,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifndef KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_2ND
 #    define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_2ND 2
+
+#ifndef KEYBALL_AUTO_MOUSE_ENABLE_DEFAULT
+#    define KEYBALL_AUTO_MOUSE_ENABLE_DEFAULT true
 #endif
 
 /// Specify SROM ID to be uploaded PMW3360DW (optical sensor).  It will be

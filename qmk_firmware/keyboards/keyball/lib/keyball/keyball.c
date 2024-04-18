@@ -615,7 +615,7 @@ void keyboard_post_init_kb(void) {
         keyball_set_cpi(c.cpi);
         keyball_set_scroll_div(c.sdiv);
 #ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
-        c.amle = true;
+        c.amle = KEYBALL_AUTO_MOUSE_ENABLE_DEFAULT;
         set_auto_mouse_enable(c.amle);
         set_auto_mouse_timeout(c.amlto == 0 ? AUTO_MOUSE_TIME : (c.amlto + 1) * AML_TIMEOUT_QU);
 #endif
