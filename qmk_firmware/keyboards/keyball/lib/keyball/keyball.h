@@ -37,19 +37,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #ifndef KEYBALL_SCROLLSNAP_ENABLE
-#    define KEYBALL_SCROLLSNAP_ENABLE 1
+#    define KEYBALL_SCROLLSNAP_ENABLE 3
 #endif
 
 #ifndef KEYBALL_SCROLLSNAP_RESET_TIMER
 #    define KEYBALL_SCROLLSNAP_RESET_TIMER 100
 #endif
 
-#ifndef KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_1ST
-#    define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_1ST 1
-#endif
-
-#ifndef KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_2ND
-#    define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_2ND 2
+#if KEYBALL_SCROLLSNAP_ENABLE == 1
+#    ifndef KEYBALL_SCROLLSNAP_TENSION_THRESHOLD
+#        define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD 12
+#    endif
+#elif KEYBALL_SCROLLSNAP_ENABLE == 3
+#    ifndef KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_1ST
+#        define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_1ST 1
+#    endif
+#    ifndef KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_2ND
+#        define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD_2ND 2
+#    endif
 #endif
 
 /// Specify SROM ID to be uploaded PMW3360DW (optical sensor).  It will be
@@ -156,8 +161,15 @@ typedef struct {
     uint32_t scroll_mode_changed;
     uint8_t  scroll_div;
 
+#if KEYBALL_SCROLLSNAP_ENABLE == 1
+    uint32_t scroll_snap_last;
+    int8_t   scroll_snap_tension_h;
+#elif KEYBALL_SCROLLSNAP_ENABLE == 2
+    keyball_scrollsnap_mode_t scrollsnap_mode;
+#elif KEYBALL_SCROLLSNAP_ENABLE == 3
     uint32_t prev_scroll_time;
     uint8_t  scroll_snap_mode;
+#endif
 
     uint16_t       last_kc;
     keypos_t       last_pos;
